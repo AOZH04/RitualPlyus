@@ -8,8 +8,12 @@
     // Тень шапки при прокрутке
     var header = document.getElementById('site_header');
     function onScroll() {
-        if (!header) { return; }
-        header.classList.toggle('is_scrolled', window.scrollY > 8);
+        if (header) {
+            header.classList.toggle('is_scrolled', window.scrollY > 8);
+        }
+        if (nav && nav.classList.contains('is_open')) {
+            closeNav();
+        }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
